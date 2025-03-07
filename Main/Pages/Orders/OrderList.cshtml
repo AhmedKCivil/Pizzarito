@@ -1,0 +1,78 @@
+﻿@page
+@model PizzaritoShop.Pages.Orders.OrdersModel
+
+<body>
+
+    <div class="container order-container">
+        <h1 class="mb-4">Pizza Orders</h1>
+
+        @if (Model.OrderList.Count == 0)
+        {
+                <div class="alert alert-warning" role="alert">
+                    No orders found.
+                </div>
+        }
+        else
+        {
+            foreach (var order in Model.OrderList)
+            {
+                        <div class="card order-card mb-3">
+
+                            <div class="card-body order-body">
+                                <p><strong>Customer Name:</strong> @order.CustomerName</p>
+                                <p><strong>Address:</strong> @order.Address</p>
+
+                                <!-- Display list of pizzas with quantities and prices -->
+                                <ul class="list-group mb-4">
+                            @if (order.CartItems != null && order.CartItems.Any())
+                            {
+                                foreach (var item in order.CartItems)
+                                {
+                                                    <li class="list-group-item">
+                                        @item.ProductName - @item.Quantity x £@item.ProductPrice
+                                                    </li>
+
+                                    var selectedToppings = new List<string>();
+
+                                    // Add toppings to the list based on their selection
+                                    if (item.StuffedCrust) { selectedToppings.Add("Stuffed Crust"); }
+                                    if (item.ThinCrispy) { selectedToppings.Add("Thin Crispy"); }
+                                    if (item.Chicken) { selectedToppings.Add("Chicken"); }
+                                    if (item.Pepperoni) { selectedToppings.Add("Pepperoni"); }
+
+                                    // Join the selected toppings with commas and output them
+                                    var toppingsOutput = string.Join(", ", selectedToppings);
+
+
+                                    <!-- Output the toppings, or show "No toppings" if none are selected -->
+                                    @if (!string.IsNullOrEmpty(toppingsOutput))
+                                    {
+                                        @toppingsOutput
+                                    }
+                                    else
+                                    {
+                                        <span>No toppings</span>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                            <li class="list-group-item">No items in the cart.</li>
+                            }
+                                </ul>
+
+                                <p><strong>Total Price:</strong> <span class="price-label">£@order.TotalPrice.ToString("0.00")</span></p>
+                            </div>
+                            <div class="card-footer order-footer">
+                                Order placed on: @order.CreatedDate.ToString("dd/MM/yyyy HH:mm")
+                            </div>
+
+                        </div>
+            }
+        }
+
+    </div>
+
+@*     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ *@</body>
+

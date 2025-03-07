@@ -1,0 +1,41 @@
+﻿@page
+@model PizzaritoShop.Pages.Checkout.CustomerDetailsModel
+@{
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">Fill in Your Details</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <!-- Customer Name Input -->
+                        <div class="form-group mb-3">
+                            <label asp-for="PizzaOrder.CustomerName" class="form-label">Your Name</label>
+                            <input asp-for="PizzaOrder.CustomerName" class="form-control form-control-lg" placeholder="Enter your full name" />
+                            <span asp-validation-for="PizzaOrder.CustomerName" class="text-danger"></span>
+                        </div>
+
+                        <!-- Address Input -->
+                        <div class="form-group mb-3">
+                            <label asp-for="PizzaOrder.Address" class="form-label">Delivery Address</label>
+                            <input asp-for="PizzaOrder.Address" class="form-control form-control-lg" placeholder="Enter your delivery address" />
+                            <span asp-validation-for="PizzaOrder.Address" class="text-danger"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2 mt-4">
+                            <input type="submit" value="Submit Order" class="btn btn-success btn-lg" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

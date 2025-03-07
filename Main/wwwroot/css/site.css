@@ -1,0 +1,122 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.MyText {
+    color: red;
+    margin: 20px 0 50px 0;
+}
+.mainText{
+    padding: 75px 20px;
+
+}
+.myDiv1{
+    margin: 100px 0 20px 0;
+    margin: 0;
+}
+
+.navbar {
+    background-color: rgb(165, 10, 35); /* Change header background to desired color */
+}
+
+.nav-link {
+    color: white !important; /* Ensure links are visible with a white color */
+}
+
+    .nav-link:hover {
+        color: rgb(220, 220, 220) !important; /* Optional: Change link color on hover */
+    }
+
+    .custom-green-button 
+    {
+        background-color: green;
+        color: white;
+        border: none;
+
+    }
+
+    .custom-green-button:hover
+    {
+        background-color: darkgreen;
+        
+
+    }
+
+
+
+#cart-icon {
+    position: fixed;
+    top: 18px;
+    right: 45%; /* Use a percentage for a more adaptable position */
+    font-size: 25px;
+    color: gold;
+}
+
+#cart-count {
+    position: absolute;
+    top: -5px; /* Move up */
+    right: -25px; /* Move right */
+    background-color: white;
+    color: red;
+    padding: 2px 7px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.add-to-cart-btn:disabled {
+    background-color: red; /* Light gray background */
+    cursor: not-allowed; /* Change cursor to show the button is not clickable */
+}
+
+.check-icon {
+    color: green; /* Green color for the tick */
+    font-size: 20px; /* Size of the tick */
+    margin-left: 8px; /* Space between the button text and the tick */
+    animation: showTick 0.5s ease-out; /* Animation for the tick */
+}
+
+@keyframes showTick {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+.nav-link:hover {
+    background-color: #28a745; /* Green background */
+    color: #dc3545; /* Red text color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.nav-link:active {
+    background-color: #dc3545; /* Red background */
+    color: #ffffff; /* White text when active */
+}
+
+.text-red {
+    color: #dc3545; /* Red color */
+}
